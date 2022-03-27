@@ -19,7 +19,7 @@ const ClusterManagerSchema = new mongoose.Schema({
     },
     category : {
         type : String,
-        unique : true,
+        required : true,
         default : "Cluster Manager"
     },
     localGovernment: {

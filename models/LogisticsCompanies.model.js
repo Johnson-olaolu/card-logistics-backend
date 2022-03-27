@@ -19,6 +19,7 @@ const LogisticsCompaniesSchema = new mongoose.Schema({
     },
     category : {
         type : String,
+        required : true,
         default : "Logistics Company"
     },
     localGovernment: {
