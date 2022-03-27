@@ -23,6 +23,11 @@ app.use("/api", appRoutes)
 const { notFound, errorHandler} = require('./middleware/errorMiddleware')
 app.use(notFound, errorHandler)
 
+
+app.get("/", (req, res) => {
+    res.send("welcome to card logistics")
+})
+
 app.listen( process.env.PORT || 5000, () => {
     console.log(`App is running on port ${process.env.PORT}`)
 })
