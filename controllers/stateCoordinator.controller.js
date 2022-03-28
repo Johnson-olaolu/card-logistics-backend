@@ -158,10 +158,10 @@ const changeClusterManagerPriority = asyncHandler(async(req, res) => {
 
 
 const changeLogisticsCompanyPriority = asyncHandler(async(req, res) => {
-	const clusterManagerId = req.params.clusterManagerId;
+	const logisticsCompanyId = req.params.logisticsCompanyId;
 	const {priority } = req.body
 	const selectedLogisticsCompany = await LogisticsCompany.findOne({
-		_id: clusterManagerId,
+		_id: logisticsCompanyId
 	});
 
 	if (!selectedLogisticsCompany) {
