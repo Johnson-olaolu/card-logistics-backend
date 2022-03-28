@@ -6,6 +6,8 @@ const {
 	rejectLogisticsCompany,
 	acceptClusterManager,
 	rejectClusterManager,
+	changeClusterManagerPriority,
+	changeLogisticsCompanyPriority,
 } = require("../controllers/stateCoordinator.controller");
 
 const router = require("express").Router();
@@ -22,5 +24,7 @@ router.post(
 );
 router.post("/accept-cluster-manager/:clusterManagerId", acceptClusterManager);
 router.post("/reject-cluster-manager/:clusterManagerId", rejectClusterManager);
+router.put("/change-logistic-company-priority/:logisticsCompanyId", changeLogisticsCompanyPriority)
+router.put("/change-cluster-manager-priority/:clusterManagerId", changeClusterManagerPriority)
 
 module.exports = router;

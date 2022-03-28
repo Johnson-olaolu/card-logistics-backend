@@ -134,6 +134,51 @@ const rejectClusterManager = asyncHandler(async (req, res) => {
 	});
 });
 
+const changeClusterManagerPriority = asyncHandler(async(req, res) => {
+	const clusterManagerId = req.params.clusterManagerId;
+	const {priority } = req.body
+	const selectedClusterManager = await ClusterManager.findOne({
+		_id: clusterManagerId,
+	});
+
+	if (!selectedClusterManager) {
+		res.status(400);
+		throw new Error("No Company registered with this id");
+	}
+
+	await selectedClusterManager.update({
+		priority: priority
+	});
+
+	res.json({
+		success: true,
+		message: `${selectedClusterManager.fullName}  priority changed to ${priority}`,
+	});
+})
+
+
+const changeLogisticsCompanyPriority = asyncHandler(async(req, res) => {
+	const clusterManagerId = req.params.clusterManagerId;
+	const {priority } = req.body
+	const selectedLogisticsCompany = await LogisticsCompany.findOne({
+		_id: clusterManagerId,
+	});
+
+	if (!selectedLogisticsCompany) {
+		res.status(400);
+		throw new Error("No Company registered with this id");
+	}
+
+	await selectedLogisticsCompany.update({
+		priority: priority
+	});
+
+	res.json({
+		success: true,
+		message: `${selectedLogisticsCompany.fullName}  priority changed to ${priority}`,
+	});
+})
+
 module.exports = {
 	getAllClusterManagers,
 	getAllLogisticsCompanies,
@@ -142,4 +187,6 @@ module.exports = {
 	rejectLogisticsCompany,
 	acceptClusterManager,
 	rejectClusterManager,
+	changeClusterManagerPriority,
+	changeLogisticsCompanyPriority
 };

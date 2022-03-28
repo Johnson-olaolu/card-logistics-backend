@@ -30,6 +30,9 @@ const LogisticsCompaniesSchema = new mongoose.Schema({
         type : String,
         required : true,
     },
+    priority : {
+        type : String
+    },
     isAccepted : {
         type : Boolean,
         required : true,
