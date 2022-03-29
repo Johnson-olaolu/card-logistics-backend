@@ -179,6 +179,28 @@ const changeLogisticsCompanyPriority = asyncHandler(async(req, res) => {
 	});
 })
 
+const mapLogisticsCompany = asyncHandler(async(req, res) => {
+	const logisticsCompanyId = req.params.logisticsCompanyId;
+	const clusterManagerId = req.body.clusterManagerId;
+
+	const selectedLogisticsCompany = await LogisticsCompany.findOne({
+		_id: logisticsCompanyId
+	});
+
+	const selectedClusterManager = await ClusterManager.findOne({
+		_id: clusterManagerId,
+	});
+
+	await selectedLogisticsCompany.update({
+		clusterManager : clusterManagerId
+	})
+
+	res.status(200).json({
+		success : true,
+		message :  `Logistics Company (${selectedLogisticsCompany.fullName}) has been mapped with Relationship Manager (${selectedClusterManager.fullName})`
+	})
+})
+
 module.exports = {
 	getAllClusterManagers,
 	getAllLogisticsCompanies,
@@ -188,5 +210,6 @@ module.exports = {
 	acceptClusterManager,
 	rejectClusterManager,
 	changeClusterManagerPriority,
-	changeLogisticsCompanyPriority
+	changeLogisticsCompanyPriority,
+	mapLogisticsCompany
 };
