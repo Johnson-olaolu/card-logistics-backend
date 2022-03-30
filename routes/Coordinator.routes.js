@@ -27,6 +27,6 @@ router.post("/accept-cluster-manager/:clusterManagerId", acceptClusterManager);
 router.post("/reject-cluster-manager/:clusterManagerId", rejectClusterManager);
 router.put("/change-logistic-company-priority/:logisticsCompanyId", changeLogisticsCompanyPriority)
 router.put("/change-cluster-manager-priority/:clusterManagerId", changeClusterManagerPriority)
-router.post("/map-logistics-company/:logisticsCompanyId", mapLogisticsCompany)
+router.put("/map-logistics-company/:logisticsCompanyId", mapLogisticsCompany)
 
 module.exports = router;
