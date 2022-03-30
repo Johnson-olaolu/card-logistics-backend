@@ -37,6 +37,9 @@ const ClusterManagerSchema = new mongoose.Schema({
         type : Boolean,
         required : true,
         default : false   
+    },
+    logisticsCompany :{
+        type : mongoose.Types.ObjectId
     }
 }, {timestamps : true})
 
