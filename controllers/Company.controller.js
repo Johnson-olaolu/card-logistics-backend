@@ -2,7 +2,8 @@ const asyncHandler = require("express-async-handler");
 const ClusterManager = require("../models/ClusterManagers.model");
 const LogisticsCompany = require("../models/LogisticsCompanies.model");
 const { companyLoginValidator } = require("../validators/companyValidator");
-
+const passport = require("passport")
+const jwt = require("jsonwebtoken")
 
 const companyLogin = asyncHandler(async(req, res) => {
     const { error } = await companyLoginValidator.validateAsync(req.body)
