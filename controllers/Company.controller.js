@@ -5,7 +5,7 @@ const { companyLoginValidator } = require("../validators/companyValidator");
 const passport = require("passport")
 const jwt = require("jsonwebtoken")
 
-const companyLogin = asyncHandler(async(req, res) => {
+const companyLogin = asyncHandler(async(req, res, next) => {
     const { error } = await companyLoginValidator.validateAsync(req.body)
 
     if(error) {
