@@ -52,7 +52,7 @@ const initializePassport = () => {
 					}
 					return done(null, user, { message: "Logged in Successfully" });
 				}else{
-					return done(null, false, { message: "User Not Found" });
+					return done(null, false, { message: "User Not Found, If you have registered before please register again thanks" });
 				}
 			}
 		)
